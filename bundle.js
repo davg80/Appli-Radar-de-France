@@ -40,11 +40,12 @@ data.forEach(async (address, index) => {
   const coordinates = await fetchText(dataJson);
   data[index] = {
     ...data[index],
-    latitude: coordinates[0],
-    longitude: coordinates[1],
+    latitude: coordinates[1],
+    longitude: coordinates[0],
   };
-  console.log(data[index].latitude);
-  console.log(data[index].longitude);
+  //console.log(data[index].latitude);
+  //console.log(data[index].longitude);
+  console.log(data[index])
   L.circle([data[index].latitude, data[index].longitude], {
     color: "red",
     fillColor: "#f03",
@@ -52,13 +53,8 @@ data.forEach(async (address, index) => {
     radius: 500,
   })
   .addTo(map);
-  console.log(data);
+  //console.log(data);
 });
-
-// console.log(data);
-// Sauvegarder dans un fichier
-
-
 
 // Set the position and zoom level of the map
 map.setView([48, -1.7], 7);
